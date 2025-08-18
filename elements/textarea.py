@@ -13,7 +13,7 @@ class Textarea(BaseElement):
         locator = self.get_locator(nth, **kwargs)
         locator.fill(value)
 
-    def check_value(self, value: str, nth: int = 0, **kwargs):
+    def check_have_value(self, value: str, nth: int = 0, **kwargs):
         # Добавили аргумент nth и передеаем его в get_locator
         locator = self.get_locator(nth, **kwargs)
         expect(locator).to_have_value(value)
