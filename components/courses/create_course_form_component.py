@@ -13,6 +13,7 @@ class CreateCourseFormComponent(BaseComponent):
         self.max_score_input = page.get_by_test_id('create-course-form-max-score-input').locator('input')
         self.min_score_input = page.get_by_test_id('create-course-form-min-score-input').locator('input')
 
+    @allure.step("Check visible create course from")
     def check_visible(self, title: str, estimated_time: str, description: str, max_score: str, min_score: str):
         expect(self.title_input).to_be_visible()
         expect(self.title_input).to_have_value(title)
@@ -29,6 +30,7 @@ class CreateCourseFormComponent(BaseComponent):
         expect(self.min_score_input).to_be_visible()
         expect(self.min_score_input).to_have_value(min_score)
 
+    @allure.step("Fill create course from")
     def fill(self, title: str, estimated_time: str, description: str, max_score: str, min_score: str):
         self.title_input.fill(title)
         expect(self.title_input).to_have_value(title)
